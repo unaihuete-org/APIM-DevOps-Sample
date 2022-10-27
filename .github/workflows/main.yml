@@ -49,14 +49,7 @@ jobs:
         template: src/ArmTemplates/Extracted-Templates/apim-unai-apiVersionSets.template.json
         parameters: apimServiceName=ApimAz204Unai
 
-    # Deploy ARM template
-    - name: Deploy APIM Products releases
-      uses: azure/arm-deploy@v1
-      with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: att-az204-apim-rg
-        template: src/ArmTemplates/Extracted-Templates/apim-unai-api-release.template.json
-        parameters: apimServiceName=ApimAz204Unai
+    
 
     # Deploy ARM template
     - name: Deploy APIM Products APIs
@@ -68,12 +61,21 @@ jobs:
         parameters: apimServiceName=ApimAz204Unai
 
 
-    - name: Deploy APIM Products APIs
+    - name: Deploy APIM APIs
       uses: azure/arm-deploy@v1
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: att-az204-apim-rg
         template: src/ArmTemplates/Extracted-Templates/apim-unai-apis.template.json
+        parameters: apimServiceName=ApimAz204Unai
+    
+    # Deploy ARM template
+    - name: Deploy APIM Products releases
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: att-az204-apim-rg
+        template: src/ArmTemplates/Extracted-Templates/apim-unai-api-release.template.json
         parameters: apimServiceName=ApimAz204Unai
 
     # Deploy ARM template
