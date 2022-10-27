@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/8185263e-72ff-4b55-936c-890400378aea')]",
+      "properties": {
+        "apiId": "/apis/demo-conference-api;rev=2"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/cf53186f-c8ec-4e0b-bf33-5c332179bb5a')]",
+      "properties": {
+        "apiId": "/apis/demo-conference-api-v1;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/8aa2debf-6554-48ca-8a0e-4fff6be7be22')]",
+      "properties": {
+        "apiId": "/apis/echo-api;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/hybridapi;rev=1/993f3ea2-5454-4e7b-9c9d-1896b713cf83')]",
+      "properties": {
+        "apiId": "/apis/hybridapi;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/lab-8-httpbin-api;rev=1/5c72ca5f-3d39-43d0-9849-caccbbc09ff8')]",
+      "properties": {
+        "apiId": "/apis/lab-8-httpbin-api;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/test-api;rev=1/9536b1e3-86a5-4627-b03a-ae4a2f6b1295')]",
+      "properties": {
+        "apiId": "/apis/test-api;rev=1"
+      }
+    }
+  ]
+}

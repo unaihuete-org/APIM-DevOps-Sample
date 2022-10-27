@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/loggers",
+      "name": "[concat(parameters('apimServiceName'), '/azuremonitor')]",
+      "properties": {
+        "loggerType": "azureMonitor",
+        "isBuffered": true
+      }
+    }
+  ]
+}

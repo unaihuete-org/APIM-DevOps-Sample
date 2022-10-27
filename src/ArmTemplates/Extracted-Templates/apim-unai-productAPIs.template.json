@@ -1,0 +1,227 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=1')]",
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=1')]",
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=2')]",
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=2')]",
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=3')]",
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=3')]",
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=4')]",
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=4')]",
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api-v1;rev=1')]",
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/demo-conference-api-v1;rev=1')]",
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api-v1;rev=2')]",
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/demo-conference-api-v1;rev=2')]",
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/echo-api;rev=1')]",
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204mar10/echo-api;rev=1')]",
+      "properties": {
+        "displayName": "az204mar10",
+        "description": "az204mar10",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/starter/echo-api;rev=1')]",
+      "properties": {
+        "displayName": "Starter",
+        "description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/echo-api;rev=1')]",
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/hybridapi;rev=1')]",
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/test-api;rev=1')]",
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    }
+  ]
+}

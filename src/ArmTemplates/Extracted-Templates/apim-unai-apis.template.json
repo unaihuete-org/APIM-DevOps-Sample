@@ -1,0 +1,3939 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "apiVersionSetId": "[concat(resourceId('Microsoft.ApiManagement/service', parameters('apimServiceName')), '/apiVersionSets/5fb3ef21364eb1971abd3430')]",
+        "subscriptionRequired": true,
+        "displayName": "Demo Conference API",
+        "serviceUrl": "https://conferenceapi.azurewebsites.net",
+        "path": "conference",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "2",
+        "apiRevisionDescription": "added some policies",
+        "apiVersionSetId": "[concat(resourceId('Microsoft.ApiManagement/service', parameters('apimServiceName')), '/apiVersionSets/5fb3ef21364eb1971abd3430')]",
+        "subscriptionRequired": true,
+        "displayName": "Demo Conference API",
+        "serviceUrl": "https://conferenceapi.azurewebsites.net",
+        "path": "conference",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "3",
+        "isOnline": false,
+        "apiRevisionDescription": "az204-test",
+        "apiVersionSetId": "[concat(resourceId('Microsoft.ApiManagement/service', parameters('apimServiceName')), '/apiVersionSets/5fb3ef21364eb1971abd3430')]",
+        "subscriptionRequired": true,
+        "displayName": "Demo Conference API",
+        "serviceUrl": "https://conferenceapi.azurewebsites.net",
+        "path": "conference",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "4",
+        "apiRevisionDescription": "az204jun17",
+        "apiVersionSetId": "[concat(resourceId('Microsoft.ApiManagement/service', parameters('apimServiceName')), '/apiVersionSets/5fb3ef21364eb1971abd3430')]",
+        "subscriptionRequired": true,
+        "displayName": "Demo Conference API",
+        "serviceUrl": "https://conferenceapi.azurewebsites.net",
+        "path": "conference",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "apiVersion": "v1",
+        "apiVersionSetId": "[concat(resourceId('Microsoft.ApiManagement/service', parameters('apimServiceName')), '/apiVersionSets/5fb3ef21364eb1971abd3430')]",
+        "subscriptionRequired": true,
+        "displayName": "Demo Conference API",
+        "serviceUrl": "https://conferenceapi.azurewebsites.net",
+        "path": "conference",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "2",
+        "apiVersion": "v1",
+        "apiRevisionDescription": "2",
+        "apiVersionSetId": "[concat(resourceId('Microsoft.ApiManagement/service', parameters('apimServiceName')), '/apiVersionSets/5fb3ef21364eb1971abd3430')]",
+        "subscriptionRequired": true,
+        "displayName": "Demo Conference API",
+        "serviceUrl": "https://conferenceapi.azurewebsites.net",
+        "path": "conference",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1')]",
+      "dependsOn": [],
+      "properties": {
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "subscriptionRequired": true,
+        "displayName": "Echo API",
+        "serviceUrl": "http://echoapi.cloudapp.net/api",
+        "path": "echo",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/hybridapi;rev=1')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "subscriptionRequired": false,
+        "displayName": "HybridAPI",
+        "serviceUrl": "http://192.168.1.36:8080",
+        "path": "hybrid",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/lab-8-httpbin-api;rev=1')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "subscriptionRequired": true,
+        "displayName": "Lab 8 HTTPBin API",
+        "serviceUrl": "https://httpapiunailab8.azurewebsites.net/",
+        "path": "",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[concat(parameters('apimServiceName'), '/test-api;rev=1')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "subscriptionRequired": true,
+        "displayName": "Test API",
+        "path": "test",
+        "protocols": [
+          "https"
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/schemas",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/5fb3e32f1875110d185cabcb')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+        "document": {
+          "definitions": {
+            "Body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/schemas",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/5fb3e32f1875110d185cabcb')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+        "document": {
+          "definitions": {
+            "Body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/schemas",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/5fb3e32f1875110d185cabcb')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+        "document": {
+          "definitions": {
+            "Body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/schemas",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/5fb3e32f1875110d185cabcb')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+        "document": {
+          "definitions": {
+            "Body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/schemas",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/5fb3e32f1875110d185cabcb')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+        "document": {
+          "definitions": {
+            "Body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/schemas",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/5fb3e32f1875110d185cabcb')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+        "document": {
+          "definitions": {
+            "Body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/diagnostics",
+      "name": "[concat(parameters('apimServiceName'), '/azuremonitor')]",
+      "dependsOn": [],
+      "properties": {
+        "loggerId": "/subscriptions/16169bdf-109c-4eb7-9963-3d01e2352774/resourceGroups/att-az204-apim-rg/providers/Microsoft.ApiManagement/service/apim-unai/loggers/azuremonitor",
+        "logClientIp": true,
+        "sampling": {
+          "samplingType": "fixed",
+          "percentage": 100.0
+        }
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=3')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=3')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/demo-conference-api;rev=4')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api;rev=4')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api-v1;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/demo-conference-api-v1;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/contoso-product/demo-conference-api-v1;rev=2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "Contoso product",
+        "description": "this is a test",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/demo-conference-api-v1;rev=2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204jul19/echo-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "az204jul19",
+        "description": "az204jul19",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "notPublished"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/az204mar10/echo-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "az204mar10",
+        "description": "az204mar10",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/starter/echo-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Starter",
+        "description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/echo-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/hybridapi;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'hybridapi;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/products/apis",
+      "name": "[concat(parameters('apimServiceName'), '/unlimited/test-api;rev=1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'test-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Unlimited",
+        "description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+        "subscriptionRequired": true,
+        "approvalRequired": true,
+        "state": "published"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSession",
+        "method": "GET",
+        "urlTemplate": "/session/{id}",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSessions",
+        "method": "GET",
+        "urlTemplate": "/sessions",
+        "description": "A list of sessions.  Optional parameters work as filters to reduce the listed sessions.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "keyword",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSessionTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSessionTopics",
+        "method": "GET",
+        "urlTemplate": "/session/{id}/topics",
+        "description": "A list of topics covered by a particular session",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSpeaker')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeaker",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakers",
+        "method": "GET",
+        "urlTemplate": "/speakers",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSpeakerSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerSessions",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSpeakerTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerTopics",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/topics",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetTopic')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopic",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopics",
+        "method": "GET",
+        "urlTemplate": "/topics",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetTopicSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSessions",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetTopicSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSpeakers",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/speakers",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/SubmitSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]",
+        "[resourceId('Microsoft.ApiManagement/service/apis/schemas', parameters('apimServiceName'), 'demo-conference-api;rev=1', '5fb3e32f1875110d185cabcb')]"
+      ],
+      "properties": {
+        "displayName": "SubmitSession",
+        "method": "POST",
+        "urlTemplate": "/session/{id}/feedback",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "request": {
+          "headers": [],
+          "queryParameters": [],
+          "representations": [
+            {
+              "contentType": "text/plain",
+              "schemaId": "5fb3e32f1875110d185cabcb",
+              "typeName": "Body"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSession",
+        "method": "GET",
+        "urlTemplate": "/session/{id}",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSessions",
+        "method": "GET",
+        "urlTemplate": "/sessions",
+        "description": "A list of sessions.  Optional parameters work as filters to reduce the listed sessions.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "keyword",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSessionTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSessionTopics",
+        "method": "GET",
+        "urlTemplate": "/session/{id}/topics",
+        "description": "A list of topics covered by a particular session",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSpeaker')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeaker",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakers",
+        "method": "GET",
+        "urlTemplate": "/speakers",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSpeakerSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerSessions",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSpeakerTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerTopics",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/topics",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetTopic')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopic",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopics",
+        "method": "GET",
+        "urlTemplate": "/topics",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetTopicSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSessions",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetTopicSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSpeakers",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/speakers",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/SubmitSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]",
+        "[resourceId('Microsoft.ApiManagement/service/apis/schemas', parameters('apimServiceName'), 'demo-conference-api;rev=2', '5fb3e32f1875110d185cabcb')]"
+      ],
+      "properties": {
+        "displayName": "SubmitSession",
+        "method": "POST",
+        "urlTemplate": "/session/{id}/feedback",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "request": {
+          "headers": [],
+          "queryParameters": [],
+          "representations": [
+            {
+              "contentType": "text/plain",
+              "schemaId": "5fb3e32f1875110d185cabcb",
+              "typeName": "Body"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetSession",
+        "method": "GET",
+        "urlTemplate": "/session/{id}",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetSessions",
+        "method": "GET",
+        "urlTemplate": "/sessions",
+        "description": "A list of sessions.  Optional parameters work as filters to reduce the listed sessions.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "keyword",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSessionTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetSessionTopics",
+        "method": "GET",
+        "urlTemplate": "/session/{id}/topics",
+        "description": "A list of topics covered by a particular session",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSpeaker')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeaker",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakers",
+        "method": "GET",
+        "urlTemplate": "/speakers",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSpeakerSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerSessions",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSpeakerTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerTopics",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/topics",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetTopic')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetTopic",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetTopics",
+        "method": "GET",
+        "urlTemplate": "/topics",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetTopicSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSessions",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetTopicSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSpeakers",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/speakers",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/SubmitSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]",
+        "[resourceId('Microsoft.ApiManagement/service/apis/schemas', parameters('apimServiceName'), 'demo-conference-api;rev=3', '5fb3e32f1875110d185cabcb')]"
+      ],
+      "properties": {
+        "displayName": "SubmitSession",
+        "method": "POST",
+        "urlTemplate": "/session/{id}/feedback",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "request": {
+          "headers": [],
+          "queryParameters": [],
+          "representations": [
+            {
+              "contentType": "text/plain",
+              "schemaId": "5fb3e32f1875110d185cabcb",
+              "typeName": "Body"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetSession",
+        "method": "GET",
+        "urlTemplate": "/session/{id}",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetSessions",
+        "method": "GET",
+        "urlTemplate": "/sessions",
+        "description": "A list of sessions.  Optional parameters work as filters to reduce the listed sessions.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "keyword",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSessionTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetSessionTopics",
+        "method": "GET",
+        "urlTemplate": "/session/{id}/topics",
+        "description": "A list of topics covered by a particular session",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSpeaker')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeaker",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakers",
+        "method": "GET",
+        "urlTemplate": "/speakers",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSpeakerSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerSessions",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSpeakerTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerTopics",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/topics",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetTopic')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetTopic",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetTopics",
+        "method": "GET",
+        "urlTemplate": "/topics",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetTopicSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSessions",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetTopicSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSpeakers",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/speakers",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/SubmitSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]",
+        "[resourceId('Microsoft.ApiManagement/service/apis/schemas', parameters('apimServiceName'), 'demo-conference-api;rev=4', '5fb3e32f1875110d185cabcb')]"
+      ],
+      "properties": {
+        "displayName": "SubmitSession",
+        "method": "POST",
+        "urlTemplate": "/session/{id}/feedback",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "request": {
+          "headers": [],
+          "queryParameters": [],
+          "representations": [
+            {
+              "contentType": "text/plain",
+              "schemaId": "5fb3e32f1875110d185cabcb",
+              "typeName": "Body"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSession",
+        "method": "GET",
+        "urlTemplate": "/session/{id}",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSessions",
+        "method": "GET",
+        "urlTemplate": "/sessions",
+        "description": "A list of sessions.  Optional parameters work as filters to reduce the listed sessions.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "keyword",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSessionTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSessionTopics",
+        "method": "GET",
+        "urlTemplate": "/session/{id}/topics",
+        "description": "A list of topics covered by a particular session",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSpeaker')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeaker",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakers",
+        "method": "GET",
+        "urlTemplate": "/speakers",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSpeakerSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerSessions",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSpeakerTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerTopics",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/topics",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetTopic')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopic",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopics",
+        "method": "GET",
+        "urlTemplate": "/topics",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetTopicSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSessions",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetTopicSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSpeakers",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/speakers",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/SubmitSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]",
+        "[resourceId('Microsoft.ApiManagement/service/apis/schemas', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1', '5fb3e32f1875110d185cabcb')]"
+      ],
+      "properties": {
+        "displayName": "SubmitSession",
+        "method": "POST",
+        "urlTemplate": "/session/{id}/feedback",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "request": {
+          "headers": [],
+          "queryParameters": [],
+          "representations": [
+            {
+              "contentType": "text/plain",
+              "schemaId": "5fb3e32f1875110d185cabcb",
+              "typeName": "Body"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSession",
+        "method": "GET",
+        "urlTemplate": "/session/{id}",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSessions",
+        "method": "GET",
+        "urlTemplate": "/sessions",
+        "description": "A list of sessions.  Optional parameters work as filters to reduce the listed sessions.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "keyword",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSessionTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSessionTopics",
+        "method": "GET",
+        "urlTemplate": "/session/{id}/topics",
+        "description": "A list of topics covered by a particular session",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSpeaker')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeaker",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakers",
+        "method": "GET",
+        "urlTemplate": "/speakers",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "speakername",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSpeakerSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerSessions",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSpeakerTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetSpeakerTopics",
+        "method": "GET",
+        "urlTemplate": "/speaker/{id}/topics",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetTopic')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopic",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetTopics')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopics",
+        "method": "GET",
+        "urlTemplate": "/topics",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "description": "Format - int32.",
+              "name": "dayno",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetTopicSessions')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSessions",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/sessions",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetTopicSpeakers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "displayName": "GetTopicSpeakers",
+        "method": "GET",
+        "urlTemplate": "/topic/{id}/speakers",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/vnd.collection+json"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/SubmitSession')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]",
+        "[resourceId('Microsoft.ApiManagement/service/apis/schemas', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2', '5fb3e32f1875110d185cabcb')]"
+      ],
+      "properties": {
+        "displayName": "SubmitSession",
+        "method": "POST",
+        "urlTemplate": "/session/{id}/feedback",
+        "description": "Retreive a representation of a single session by Id",
+        "templateParameters": [
+          {
+            "name": "id",
+            "description": "Format - int32.",
+            "type": "integer",
+            "required": true,
+            "values": []
+          }
+        ],
+        "request": {
+          "headers": [],
+          "queryParameters": [],
+          "representations": [
+            {
+              "contentType": "text/plain",
+              "schemaId": "5fb3e32f1875110d185cabcb",
+              "typeName": "Body"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "description": "OK",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/hal+json"
+              },
+              {
+                "contentType": "text/plain"
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/create-resource')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Create resource",
+        "method": "POST",
+        "urlTemplate": "/resource",
+        "description": "A demonstration of a POST call based on the echo backend above. The request body is expected to contain JSON-formatted data (see example below). A policy is used to automatically transform any request sent in JSON directly to XML. In a real-world scenario this could be used to enable modern clients to speak to a legacy backend.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [],
+          "representations": [
+            {
+              "contentType": "application/json",
+              "examples": {
+                "default": {
+                  "value": "{\r\n\t\"vehicleType\": \"train\",\r\n\t\"maxSpeed\": 125,\r\n\t\"avgSpeed\": 90,\r\n\t\"speedUnit\": \"mph\"\r\n}"
+                }
+              }
+            }
+          ]
+        },
+        "responses": [
+          {
+            "headers": [],
+            "representations": [],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/modify-resource')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Modify Resource",
+        "method": "PUT",
+        "urlTemplate": "/resource",
+        "description": "A demonstration of a PUT call handled by the same \"echo\" backend as above. You can now specify a request body in addition to headers and it will be returned as well.",
+        "templateParameters": [],
+        "responses": [
+          {
+            "headers": [],
+            "representations": [],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/remove-resource')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Remove resource",
+        "method": "DELETE",
+        "urlTemplate": "/resource",
+        "description": "A demonstration of a DELETE call which traditionally deletes the resource. It is based on the same \"echo\" backend as in all other operations so nothing is actually deleted.",
+        "templateParameters": [],
+        "responses": [
+          {
+            "headers": [],
+            "representations": [],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/retrieve-header-only')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Retrieve header only",
+        "method": "HEAD",
+        "urlTemplate": "/resource",
+        "description": "The HEAD operation returns only headers. In this demonstration a policy is used to set additional headers when the response is returned and to enable JSONP.",
+        "templateParameters": [],
+        "responses": [
+          {
+            "headers": [],
+            "representations": [],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/retrieve-resource')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Retrieve resource",
+        "method": "GET",
+        "urlTemplate": "/resource",
+        "description": "A demonstration of a GET call on a sample resource. It is handled by an \"echo\" backend which returns a response equal to the request (the supplied headers and body are being returned as received).",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "defaultValue": "sample",
+              "description": "A sample parameter that is required and has a default value of \"sample\".",
+              "name": "param1",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "Another sample parameter, set to not required.",
+              "name": "param2",
+              "required": false,
+              "type": "number"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "description": "Returned in all cases.",
+            "headers": [],
+            "representations": [],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/retrieve-resource-cached')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'echo-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Retrieve resource (cached)",
+        "method": "GET",
+        "urlTemplate": "/resource-cached",
+        "description": "A demonstration of a GET call with caching enabled on the same \"echo\" backend as above. Cache TTL is set to 1 hour. When you make the first request the headers you supplied will be cached. Subsequent calls will return the same headers as the first time even if you change them in your request.",
+        "templateParameters": [],
+        "request": {
+          "headers": [],
+          "queryParameters": [
+            {
+              "defaultValue": "sample",
+              "description": "A sample parameter that is required and has a default value of \"sample\".",
+              "name": "param1",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "Another sample parameter, set to not required.",
+              "name": "param2",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "representations": []
+        },
+        "responses": [
+          {
+            "headers": [],
+            "representations": [],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/hybridapi;rev=1/test')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'hybridapi;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "test",
+        "method": "GET",
+        "urlTemplate": "/test",
+        "description": "",
+        "templateParameters": [],
+        "responses": []
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/lab-8-httpbin-api;rev=1/echo-headers')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'lab-8-httpbin-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Echo Headers",
+        "method": "GET",
+        "urlTemplate": "/",
+        "description": "",
+        "templateParameters": [],
+        "responses": []
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/lab-8-httpbin-api;rev=1/get-legacy-data')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'lab-8-httpbin-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Get Legacy Data",
+        "method": "GET",
+        "urlTemplate": "/xml",
+        "description": "",
+        "templateParameters": [],
+        "responses": []
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[concat(parameters('apimServiceName'), '/test-api;rev=1/test-call')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'test-api;rev=1')]"
+      ],
+      "properties": {
+        "displayName": "Test Call",
+        "method": "GET",
+        "urlTemplate": "/test",
+        "description": "",
+        "templateParameters": [],
+        "responses": [
+          {
+            "description": "",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/json",
+                "examples": {
+                  "default": {
+                    "value": "{ \"sampleField\" : \"test\" }"
+                  }
+                }
+              }
+            ],
+            "statusCode": 200
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/GetSpeakers/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'demo-conference-api;rev=1', 'GetSpeakers')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <rate-limit-by-key calls=\"3\" renewal-period=\"15\" counter-key=\"@(context.Subscription.Id)\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <set-header name=\"X-Powered-By\" exists-action=\"delete\" />\r\n    <set-header name=\"X-AspNet-Version\" exists-action=\"delete\" />\r\n    <redirect-content-urls />\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/GetSpeakers/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'demo-conference-api;rev=2', 'GetSpeakers')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <rate-limit-by-key calls=\"3\" renewal-period=\"15\" counter-key=\"@(context.Subscription.Id)\" />\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\" downstream-caching-type=\"none\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <set-header name=\"X-Powered-By\" exists-action=\"delete\" />\r\n    <set-header name=\"X-AspNet-Version\" exists-action=\"delete\" />\r\n    <redirect-content-urls />\r\n    <base />\r\n    <cache-store duration=\"30\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/GetSpeakers/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'demo-conference-api;rev=3', 'GetSpeakers')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <rate-limit-by-key calls=\"3\" renewal-period=\"15\" counter-key=\"@(context.Subscription.Id)\" />\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\" downstream-caching-type=\"none\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <set-header name=\"X-Powered-By\" exists-action=\"delete\" />\r\n    <set-header name=\"X-AspNet-Version\" exists-action=\"delete\" />\r\n    <redirect-content-urls />\r\n    <base />\r\n    <cache-store duration=\"30\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/GetSpeakers/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'demo-conference-api;rev=4', 'GetSpeakers')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <rate-limit-by-key calls=\"3\" renewal-period=\"15\" counter-key=\"@(context.Subscription.Id)\" />\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\" downstream-caching-type=\"none\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <set-header name=\"X-Powered-By\" exists-action=\"delete\" />\r\n    <set-header name=\"X-AspNet-Version\" exists-action=\"delete\" />\r\n    <redirect-content-urls />\r\n    <base />\r\n    <cache-store duration=\"30\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/GetSpeakers/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1', 'GetSpeakers')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <rate-limit-by-key calls=\"3\" renewal-period=\"15\" counter-key=\"@(context.Subscription?.Key ?? &quot;anonymous&quot;)\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <set-header name=\"X-Powered-By\" exists-action=\"delete\" />\r\n    <set-header name=\"X-AspNet-Version\" exists-action=\"delete\" />\r\n    <redirect-content-urls />\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/GetSpeakers/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2', 'GetSpeakers')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <rate-limit-by-key calls=\"3\" renewal-period=\"15\" counter-key=\"@(context.Subscription?.Key ?? &quot;anonymous&quot;)\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <set-header name=\"X-Powered-By\" exists-action=\"delete\" />\r\n    <set-header name=\"X-AspNet-Version\" exists-action=\"delete\" />\r\n    <redirect-content-urls />\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/create-resource/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'echo-api;rev=1', 'create-resource')]"
+      ],
+      "properties": {
+        "value": "<policies>\r\n  <inbound>\r\n    <base />\r\n    <json-to-xml apply=\"always\" consider-accept-header=\"false\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/retrieve-header-only/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'echo-api;rev=1', 'retrieve-header-only')]"
+      ],
+      "properties": {
+        "value": "<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <set-header name=\"X-My-Sample\" exists-action=\"override\">\r\n      <value>This is a sample</value>\r\n      <!-- for multiple headers with the same name add additional value elements -->\r\n    </set-header>\r\n    <jsonp callback-parameter-name=\"ProcessResponse\" />\r\n  </outbound>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/retrieve-resource-cached/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'echo-api;rev=1', 'retrieve-resource-cached')]"
+      ],
+      "properties": {
+        "value": "<policies>\r\n  <inbound>\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\">\r\n      <vary-by-header>Accept</vary-by-header>\r\n      <vary-by-header>Accept-Charset</vary-by-header>\r\n    </cache-lookup>\r\n    <rewrite-uri template=\"/resource\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <cache-store duration=\"3600\" />\r\n  </outbound>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/hybridapi;rev=1/test/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'hybridapi;rev=1', 'test')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/lab-8-httpbin-api;rev=1/echo-headers/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'lab-8-httpbin-api;rev=1', 'echo-headers')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <set-header name=\"source\" exists-action=\"append\">\r\n      <value>azure-api-mgmt</value>\r\n    </set-header>\r\n    <set-backend-service base-url=\"https://httpapiunailab8.azurewebsites.net/headers\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/lab-8-httpbin-api;rev=1/get-legacy-data/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'lab-8-httpbin-api;rev=1', 'get-legacy-data')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <xml-to-json kind=\"direct\" apply=\"always\" consider-accept-header=\"false\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "name": "[concat(parameters('apimServiceName'), '/test-api;rev=1/test-call/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('apimServiceName'), 'test-api;rev=1', 'test-call')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <mock-response status-code=\"200\" content-type=\"application/json\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=1')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\" downstream-caching-type=\"none\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <redirect-content-urls />\r\n    <base />\r\n    <cache-store duration=\"10\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=2/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=2')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=3/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=3')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <redirect-content-urls />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=4/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api;rev=4')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <redirect-content-urls />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=1/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=1')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\" downstream-caching-type=\"none\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <cache-store duration=\"10\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api-v1;rev=2/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'demo-conference-api-v1;rev=2')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <cache-lookup vary-by-developer=\"false\" vary-by-developer-groups=\"false\" downstream-caching-type=\"none\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <cache-store duration=\"10\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/hybridapi;rev=1/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'hybridapi;rev=1')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <rate-limit-by-key calls=\"2\" renewal-period=\"10\" counter-key=\"@(context.Request.IpAddress)\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <find-and-replace from=\"This is a Test\" to=\"APIM selfhosted gateway working fine!\" />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[concat(parameters('apimServiceName'), '/lab-8-httpbin-api;rev=1/policy')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimServiceName'), 'lab-8-httpbin-api;rev=1')]"
+      ],
+      "properties": {
+        "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n    <xml-to-json kind=\"javascript-friendly\" apply=\"always\" consider-accept-header=\"true\" />\r\n  </on-error>\r\n</policies>",
+        "format": "xml"
+      }
+    }
+  ]
+}
