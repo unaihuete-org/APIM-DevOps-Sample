@@ -77,12 +77,12 @@ jobs:
         parameters: apimServiceName=ApimAz204Unai
 
     # Deploy ARM template
-      - name: Deploy APIM global policies
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: att-az204-apim-rg
-          template: src/ArmTemplates/Extracted-Templates/apim-unai-groups.template.json
-          parameters: apimServiceName=ApimAz204Unai
+    - name: Deploy APIM global policies
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: att-az204-apim-rg
+        template: src/ArmTemplates/Extracted-Templates/apim-unai-groups.template.json
+        parameters: apimServiceName=ApimAz204Unai
 
       
